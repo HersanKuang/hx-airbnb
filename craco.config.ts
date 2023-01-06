@@ -11,7 +11,7 @@ module.exports = {
   // webpack
   webpack: {
     alias: {
-      "@": path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src')
     }
   }
 }
