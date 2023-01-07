@@ -1,9 +1,20 @@
 import React, { memo } from 'react'
+import type { FC, ReactNode } from 'react'
+import { useRoutes } from 'react-router-dom'
+import routes from '@/router'
 
-const App = memo((props) => {
-  return <div className="app">App</div>
-})
+interface IProps {
+  children?: ReactNode
+}
 
-App.displayName = 'App'
+const App: FC<IProps> = () => {
+  return (
+    <div className="app">
+      <div className="header">header</div>
+      <div className="page">{useRoutes(routes)}</div>
+      <div className="footer">footer</div>
+    </div>
+  )
+}
 
-export default App
+export default memo(App)
