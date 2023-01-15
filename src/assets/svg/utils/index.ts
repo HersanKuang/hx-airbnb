@@ -1,5 +1,5 @@
-function styleStrToObject(styleStr) {
-  const obj = {}
+function styleStrToObject(styleStr: string) {
+  const obj: any = {}
   const s = styleStr
     .toLowerCase()
     .replace(/-(.)/g, function (m, g) {
