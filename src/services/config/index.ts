@@ -1,2 +1,2 @@
-export const BASE_URL = 'http://codercba.com:1888/airbnb/api'
+export const BASE_URL = process.env.REACT_APP_BASE_URL
 export const TIME_OUT = 10000
