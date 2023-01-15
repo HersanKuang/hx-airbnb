@@ -4,6 +4,7 @@ import { HomeWrapper } from '@/views/home/style'
 import HomeBanner from '@/views/home/c-cpns/home-banner'
 import { fetchHomeDataAction } from '@/store/modules/home'
 import { shallowEqualApp, useAppDispatch, useAppSelector } from '@/store'
+import AreaHeader from '@/components/area-header'
 
 interface IProps {
   children?: ReactNode
@@ -28,12 +29,14 @@ const Home: FC<IProps> = () => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
-        <h2>{goodPriceInfo.title}</h2>
-        <ul>
-          {goodPriceInfo.list?.map((item: any) => (
-            <li key={item.id}>{item.name}</li>
-          ))}
-        </ul>
+        <div className="good-price">
+          <AreaHeader title={goodPriceInfo.title} />
+          <ul>
+            {goodPriceInfo.list?.map((item: any) => (
+              <li key={item.id}>{item.name}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </HomeWrapper>
   )
