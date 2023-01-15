@@ -1,5 +1,7 @@
 import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
+import { HomeWrapper } from '@/views/home/style'
+import HomeBanner from '@/views/home/c-cpns/home-banner'
 
 interface IProps {
   children?: ReactNode
@@ -7,9 +9,9 @@ interface IProps {
 
 const Home: FC<IProps> = () => {
   return (
-    <div>
-      <h2>home page</h2>
-    </div>
+    <HomeWrapper>
+      <HomeBanner />
+    </HomeWrapper>
   )
 }
 
