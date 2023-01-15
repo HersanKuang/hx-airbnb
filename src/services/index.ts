@@ -12,3 +12,4 @@ const hxRequest = new HXRequest({
 })
 
 export default hxRequest
+export * from './modules/home'
