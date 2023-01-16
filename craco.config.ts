@@ -11,8 +11,7 @@ module.exports = {
   // webpack
   webpack: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
-      '@mui/styled-engine': '@mui/styled-engine-sc'
+      '@': path.resolve(__dirname, 'src')
     }
   }
 }
