@@ -6,7 +6,6 @@ import { fetchHomeDataAction } from '@/store/modules/home'
 import { shallowEqualApp, useAppDispatch, useAppSelector } from '@/store'
 import AreaHeader from '@/components/area-header'
 import RoomItem from '@/components/room-item'
-import { Button } from '@mui/material'
 
 interface IProps {
   children?: ReactNode
@@ -40,13 +39,6 @@ const Home: FC<IProps> = () => {
           </ul>
         </div>
       </div>
-      <Button color="secondary">Secondary</Button>
-      <Button variant="contained" color="success">
-        Success
-      </Button>
-      <Button variant="outlined" color="error">
-        Error
-      </Button>
     </HomeWrapper>
   )
 }

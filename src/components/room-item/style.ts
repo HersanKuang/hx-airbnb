@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-interface IVerifyColor {
+interface IRoomItemStyle {
   verifyColor: string
 }
-export const RoomItemWrapper = styled.div<IVerifyColor>`
+export const RoomItemWrapper = styled.div<IRoomItemStyle>`
   flex-shrink: 0;
   box-sizing: border-box;
   width: 25%;
