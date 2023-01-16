@@ -5,7 +5,7 @@ import HomeBanner from '@/views/home/c-cpns/home-banner'
 import { fetchHomeDataAction } from '@/store/modules/home'
 import { shallowEqualApp, useAppDispatch, useAppSelector } from '@/store'
 import AreaHeader from '@/components/area-header'
-import RoomItem from '@/components/room-item'
+import AreaRooms from '@/components/area-rooms'
 
 interface IProps {
   children?: ReactNode
@@ -32,11 +32,7 @@ const Home: FC<IProps> = () => {
       <div className="content">
         <div className="good-price">
           <AreaHeader title={goodPriceInfo.title} />
-          <ul className="room-list">
-            {goodPriceInfo.list?.slice(0, 8).map((item: any) => (
-              <RoomItem itemData={item} key={item.id} />
-            ))}
-          </ul>
+          <AreaRooms roomList={goodPriceInfo.list?.slice(0, 8)} />
         </div>
       </div>
     </HomeWrapper>
