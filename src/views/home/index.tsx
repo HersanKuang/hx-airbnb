@@ -4,8 +4,6 @@ import { HomeWrapper } from '@/views/home/style'
 import HomeBanner from '@/views/home/c-cpns/home-banner'
 import { fetchHomeDataAction } from '@/store/modules/home'
 import { shallowEqualApp, useAppDispatch, useAppSelector } from '@/store'
-import AreaHeader from '@/components/area-header'
-import AreaRooms from '@/components/area-rooms'
 import HomeSectionV1 from '@/views/home/c-cpns/home-section-v1'
 
 interface IProps {
@@ -14,10 +12,11 @@ interface IProps {
 
 const Home: FC<IProps> = () => {
   /** 从redux中获取数据 */
-  const { goodPriceInfo, highScoreInfo } = useAppSelector(
+  const { goodPriceInfo, highScoreInfo, discountInfo } = useAppSelector(
     (state) => ({
       goodPriceInfo: state.home.goodPriceInfo,
-      highScoreInfo: state.home.highScoreInfo
+      highScoreInfo: state.home.highScoreInfo,
+      discountInfo: state.home.discountInfo
     }),
     shallowEqualApp
   )
