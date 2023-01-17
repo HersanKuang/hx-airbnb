@@ -6,6 +6,7 @@ import { fetchHomeDataAction } from '@/store/modules/home'
 import { shallowEqualApp, useAppDispatch, useAppSelector } from '@/store'
 import AreaHeader from '@/components/area-header'
 import AreaRooms from '@/components/area-rooms'
+import HomeSectionV1 from '@/views/home/c-cpns/home-section-v1'
 
 interface IProps {
   children?: ReactNode
@@ -31,17 +32,15 @@ const Home: FC<IProps> = () => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
-        <div className="good-price">
-          <AreaHeader title={goodPriceInfo.title} />
-          <AreaRooms roomList={goodPriceInfo.list?.slice(0, 8)} />
-        </div>
-        <div className="high-score">
-          <AreaHeader
-            title={highScoreInfo.title}
-            subtitle={highScoreInfo.subtitle}
-          />
-          <AreaRooms roomList={highScoreInfo.list?.slice(0, 8)} />
-        </div>
+        <HomeSectionV1
+          title={goodPriceInfo.title}
+          roomList={goodPriceInfo.list}
+        />
+        <HomeSectionV1
+          title={highScoreInfo.title}
+          subtitle={highScoreInfo.subtitle}
+          roomList={highScoreInfo.list}
+        />
       </div>
     </HomeWrapper>
   )

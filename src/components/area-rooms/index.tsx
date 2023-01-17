@@ -12,7 +12,7 @@ const AreaRooms: FC<IProps> = (props) => {
   const { roomList = [] } = props
   return (
     <RoomsWrapper>
-      {roomList.map((item: any) => (
+      {roomList.slice(0, 8).map((item: any) => (
         <RoomItem itemData={item} key={item.id} />
       ))}
     </RoomsWrapper>
