@@ -6,12 +6,16 @@ import { RoomItemWrapper } from '@/components/room-item/style'
 interface IProps {
   children?: ReactNode
   itemData: any
+  itemWidth?: string
 }
 
 const RoomItem: FC<IProps> = (props) => {
-  const { itemData } = props
+  const { itemData, itemWidth = '25%' } = props
   return (
-    <RoomItemWrapper verifyColor={itemData?.verify_info?.text || '#39576a'}>
+    <RoomItemWrapper
+      verifyColor={itemData?.verify_info?.text || '#39576a'}
+      itemWidth={itemWidth}
+    >
       <div className="inner">
         <div className="cover">
           <img src={itemData.picture_url} />

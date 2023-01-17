@@ -9,14 +9,15 @@ interface IProps {
   title: string
   subtitle?: string
   roomList: any[]
+  itemWidth?: string
 }
 
 const HomeSectionV1: FC<IProps> = (props) => {
-  const { title, subtitle, roomList = [] } = props
+  const { itemWidth, title, subtitle, roomList = [] } = props
   return (
     <SectionV1Wrapper>
       <AreaHeader title={title} subtitle={subtitle} />
-      <AreaRooms roomList={roomList} />
+      <AreaRooms roomList={roomList} itemWidth={itemWidth} />
     </SectionV1Wrapper>
   )
 }

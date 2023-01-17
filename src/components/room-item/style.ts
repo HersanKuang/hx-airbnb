@@ -2,11 +2,12 @@ import styled from 'styled-components'
 
 interface IRoomItemStyle {
   verifyColor: string
+  itemWidth: string
 }
 export const RoomItemWrapper = styled.div<IRoomItemStyle>`
   flex-shrink: 0;
   box-sizing: border-box;
-  width: 25%;
+  width: ${(props) => props.itemWidth};
   padding: 8px 8px 12px;
 
   .inner {
