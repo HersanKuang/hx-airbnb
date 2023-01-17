@@ -13,9 +13,10 @@ interface IProps {
 
 const Home: FC<IProps> = () => {
   /** 从redux中获取数据 */
-  const { goodPriceInfo } = useAppSelector(
+  const { goodPriceInfo, highScoreInfo } = useAppSelector(
     (state) => ({
-      goodPriceInfo: state.home.goodPriceInfo
+      goodPriceInfo: state.home.goodPriceInfo,
+      highScoreInfo: state.home.highScoreInfo
     }),
     shallowEqualApp
   )
@@ -33,6 +34,13 @@ const Home: FC<IProps> = () => {
         <div className="good-price">
           <AreaHeader title={goodPriceInfo.title} />
           <AreaRooms roomList={goodPriceInfo.list?.slice(0, 8)} />
+        </div>
+        <div className="high-score">
+          <AreaHeader
+            title={highScoreInfo.title}
+            subtitle={highScoreInfo.subtitle}
+          />
+          <AreaRooms roomList={highScoreInfo.list?.slice(0, 8)} />
         </div>
       </div>
     </HomeWrapper>

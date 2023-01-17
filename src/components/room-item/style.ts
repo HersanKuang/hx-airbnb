@@ -7,7 +7,7 @@ export const RoomItemWrapper = styled.div<IRoomItemStyle>`
   flex-shrink: 0;
   box-sizing: border-box;
   width: 25%;
-  padding: 8px;
+  padding: 8px 8px 12px;
 
   .inner {
     width: 100%;
