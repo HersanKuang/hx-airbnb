@@ -5,9 +5,8 @@ import HomeBanner from '@/views/home/c-cpns/home-banner'
 import { fetchHomeDataAction } from '@/store/modules/home'
 import { shallowEqualApp, useAppDispatch, useAppSelector } from '@/store'
 import HomeSectionV1 from '@/views/home/c-cpns/home-section-v1'
-import AreaHeader from '@/components/area-header'
-import AreaRooms from '@/components/area-rooms'
-import AreaTabs from '@/components/area-tabs'
+import HomeSectionV2 from '@/views/home/c-cpns/home-section-v2'
+import { isEmptyO } from '@/utils'
 
 interface IProps {
   children?: ReactNode
@@ -24,9 +23,6 @@ const Home: FC<IProps> = () => {
     shallowEqualApp
   )
 
-  /** 对数据的处理 */
-  const tabNames = discountInfo.dest_address?.map((item: any) => item.name)
-
   /** 派发异步事件：发送网络请求 */
   const dispatch = useAppDispatch()
   useEffect(() => {
@@ -37,28 +33,21 @@ const Home: FC<IProps> = () => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
-        {/* 折扣数据 */}
-        <div className="discount">
-          <AreaHeader
-            title={discountInfo.title}
-            subtitle={discountInfo.subtitle}
-          />
-          <AreaTabs tabNames={tabNames} />
-          <AreaRooms
-            roomList={discountInfo.dest_list?.['成都']}
-            itemWidth="33.3333%"
-          />
-        </div>
+        {isEmptyO(discountInfo) && <HomeSectionV2 infoData={discountInfo} />}
 
-        <HomeSectionV1
-          title={goodPriceInfo.title}
-          roomList={goodPriceInfo.list}
-        />
-        <HomeSectionV1
-          title={highScoreInfo.title}
-          subtitle={highScoreInfo.subtitle}
-          roomList={highScoreInfo.list}
-        />
+        {isEmptyO(goodPriceInfo) && (
+          <HomeSectionV1
+            title={goodPriceInfo.title}
+            roomList={goodPriceInfo.list}
+          />
+        )}
+        {isEmptyO(discountInfo) && (
+          <HomeSectionV1
+            title={highScoreInfo.title}
+            subtitle={highScoreInfo.subtitle}
+            roomList={highScoreInfo.list}
+          />
+        )}
       </div>
     </HomeWrapper>
   )

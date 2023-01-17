@@ -3,18 +3,19 @@ import type { FC, ReactNode } from 'react'
 import { Button } from '@mui/material'
 import classNames from 'classnames'
 import { TabsWrapper } from '@/components/area-tabs/style'
-import theme from '@/assets/theme'
 
 interface IProps {
   children?: ReactNode
   tabNames: string[]
+  tabClick: (index: number, name: string) => void
 }
 
 const AreaTabs: FC<IProps> = (props) => {
-  const { tabNames = [] } = props
+  const { tabNames = [], tabClick } = props
   const [currentIndex, setCurrentIndex] = useState(0)
-  function itemClickHandle(index: number) {
+  function itemClickHandle(index: number, item: string) {
     setCurrentIndex(index)
+    tabClick(index, item)
   }
 
   return (
@@ -23,7 +24,7 @@ const AreaTabs: FC<IProps> = (props) => {
         <Button
           className={classNames('item', { active: index === currentIndex })}
           variant="contained"
-          onClick={() => itemClickHandle(index)}
+          onClick={() => itemClickHandle(index, item)}
           key={item}
         >
           {item}
