@@ -35,19 +35,8 @@ const Home: FC<IProps> = () => {
       <div className="content">
         {isEmptyO(discountInfo) && <HomeSectionV2 infoData={discountInfo} />}
 
-        {isEmptyO(goodPriceInfo) && (
-          <HomeSectionV1
-            title={goodPriceInfo.title}
-            roomList={goodPriceInfo.list}
-          />
-        )}
-        {isEmptyO(discountInfo) && (
-          <HomeSectionV1
-            title={highScoreInfo.title}
-            subtitle={highScoreInfo.subtitle}
-            roomList={highScoreInfo.list}
-          />
-        )}
+        {isEmptyO(goodPriceInfo) && <HomeSectionV1 infoData={goodPriceInfo} />}
+        {isEmptyO(highScoreInfo) && <HomeSectionV1 infoData={highScoreInfo} />}
       </div>
     </HomeWrapper>
   )

@@ -6,18 +6,16 @@ import AreaRooms from '@/components/area-rooms'
 
 interface IProps {
   children?: ReactNode
-  title: string
-  subtitle?: string
-  roomList: any[]
+  infoData: any
   itemWidth?: string
 }
 
 const HomeSectionV1: FC<IProps> = (props) => {
-  const { itemWidth, title, subtitle, roomList = [] } = props
+  const { infoData, itemWidth } = props
   return (
     <SectionV1Wrapper>
-      <AreaHeader title={title} subtitle={subtitle} />
-      <AreaRooms roomList={roomList} itemWidth={itemWidth} />
+      <AreaHeader title={infoData.title} subtitle={infoData.subtitle} />
+      <AreaRooms roomList={infoData.list} itemWidth={itemWidth} />
     </SectionV1Wrapper>
   )
 }
