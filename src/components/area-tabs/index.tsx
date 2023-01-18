@@ -20,16 +20,18 @@ const AreaTabs: FC<IProps> = (props) => {
 
   return (
     <TabsWrapper>
-      {tabNames.map((item, index) => (
-        <Button
-          className={classNames('item', { active: index === currentIndex })}
-          variant="contained"
-          onClick={() => itemClickHandle(index, item)}
-          key={item}
-        >
-          {item}
-        </Button>
-      ))}
+      <div className="tabs">
+        {tabNames.map((item, index) => (
+          <Button
+            className={classNames('item', { active: index === currentIndex })}
+            variant="contained"
+            onClick={() => itemClickHandle(index, item)}
+            key={item}
+          >
+            {item}
+          </Button>
+        ))}
+      </div>
     </TabsWrapper>
   )
 }
