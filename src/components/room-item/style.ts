@@ -28,6 +28,7 @@ export const RoomItemWrapper = styled.div<IRoomItemStyle>`
       width: 100%;
       height: 100%;
       object-fit: cover;
+      cursor: pointer;
     }
   }
 
@@ -108,12 +109,14 @@ export const RoomItemWrapper = styled.div<IRoomItemStyle>`
     margin: 10px 0 5px;
     font-size: 12px;
     font-weight: 700;
+    cursor: pointer;
     color: ${(props) => props.verifyColor};
   }
 
   .name {
     font-size: 16px;
     font-weight: 700;
+    cursor: pointer;
 
     overflow: hidden;
     text-overflow: ellipsis;

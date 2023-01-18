@@ -14,14 +14,16 @@ interface IProps {
 
 const Home: FC<IProps> = () => {
   /** 从redux中获取数据 */
-  const { goodPriceInfo, highScoreInfo, discountInfo } = useAppSelector(
-    (state) => ({
-      goodPriceInfo: state.home.goodPriceInfo,
-      highScoreInfo: state.home.highScoreInfo,
-      discountInfo: state.home.discountInfo
-    }),
-    shallowEqualApp
-  )
+  const { goodPriceInfo, highScoreInfo, discountInfo, hotRecommendInfo } =
+    useAppSelector(
+      (state) => ({
+        goodPriceInfo: state.home.goodPriceInfo,
+        highScoreInfo: state.home.highScoreInfo,
+        discountInfo: state.home.discountInfo,
+        hotRecommendInfo: state.home.hotRecommendInfo
+      }),
+      shallowEqualApp
+    )
 
   /** 派发异步事件：发送网络请求 */
   const dispatch = useAppDispatch()
@@ -33,8 +35,10 @@ const Home: FC<IProps> = () => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
+        {isEmptyO(hotRecommendInfo) && (
+          <HomeSectionV2 infoData={hotRecommendInfo} />
+        )}
         {isEmptyO(discountInfo) && <HomeSectionV2 infoData={discountInfo} />}
-
         {isEmptyO(goodPriceInfo) && <HomeSectionV1 infoData={goodPriceInfo} />}
         {isEmptyO(highScoreInfo) && <HomeSectionV1 infoData={highScoreInfo} />}
       </div>

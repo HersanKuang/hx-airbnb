@@ -9,7 +9,7 @@ const theme = {
   },
   mixin: {
     boxShadow: `
-      transition: box-shadow 400ms;
+      transition: box-shadow 200ms ease;
       &:hover {
         box-shadow: 0px 3px 6px rgb(0 0 0 / 18%);
       }
