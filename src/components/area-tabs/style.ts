@@ -2,13 +2,11 @@ import styled from 'styled-components'
 
 export const TabsWrapper = styled.div`
   box-sizing: border-box;
-  padding-top: 8px;
-  margin-bottom: 24px;
   .tabs {
+    position: relative;
     white-space: nowrap;
-    overflow-x: hidden;
-    padding: 16px 8px !important;
-    margin: -16px -8px !important;
+    padding: 8px 0 18px;
+    transition: transform 500ms;
     .item {
       box-sizing: border-box;
       min-width: 120px;

@@ -3,6 +3,7 @@ import type { FC, ReactNode } from 'react'
 import { Button } from '@mui/material'
 import classNames from 'classnames'
 import { TabsWrapper } from '@/components/area-tabs/style'
+import ScrollView from '@/base-ui/scroll-view'
 
 interface IProps {
   children?: ReactNode
@@ -20,18 +21,20 @@ const AreaTabs: FC<IProps> = (props) => {
 
   return (
     <TabsWrapper>
-      <div className="tabs">
-        {tabNames.map((item, index) => (
-          <Button
-            className={classNames('item', { active: index === currentIndex })}
-            variant="contained"
-            onClick={() => itemClickHandle(index, item)}
-            key={item}
-          >
-            {item}
-          </Button>
-        ))}
-      </div>
+      <ScrollView isShowCover={true}>
+        <div className="tabs">
+          {tabNames.map((item, index) => (
+            <Button
+              className={classNames('item', { active: index === currentIndex })}
+              variant="contained"
+              onClick={() => itemClickHandle(index, item)}
+              key={item}
+            >
+              {item}
+            </Button>
+          ))}
+        </div>
+      </ScrollView>
     </TabsWrapper>
   )
 }
