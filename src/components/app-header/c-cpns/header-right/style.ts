@@ -12,11 +12,12 @@ export const RightWrapper = styled.div`
   .btns {
     display: flex;
     box-sizing: content-box;
+    margin-right: 8px;
 
     .btn {
       height: 18px;
       line-height: 18px;
-      padding: 12px 15px;
+      padding: 12px;
       border-radius: 22px;
       cursor: pointer;
       box-sizing: content-box;
