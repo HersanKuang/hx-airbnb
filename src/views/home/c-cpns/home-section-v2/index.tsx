@@ -4,6 +4,7 @@ import { SectionV2Wrapper } from '@/views/home/c-cpns/home-section-v2/style'
 import AreaHeader from '@/components/area-header'
 import AreaTabs from '@/components/area-tabs'
 import AreaRooms from '@/components/area-rooms'
+import AreaFooter from '@/components/area-footer'
 
 interface IProps {
   children?: ReactNode
@@ -27,6 +28,7 @@ const HomeSectionV2: FC<IProps> = (props) => {
       <AreaHeader title={infoData.title} subtitle={infoData.subtitle} />
       <AreaTabs tabNames={tabNames} tabClick={tabsClickHandle} />
       <AreaRooms roomList={infoData.dest_list[name]} itemWidth="33.3333%" />
+      <AreaFooter name={name} />
     </SectionV2Wrapper>
   )
 }
