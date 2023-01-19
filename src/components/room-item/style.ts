@@ -106,11 +106,25 @@ export const RoomItemWrapper = styled.div<IRoomItemStyle>`
   }
 
   .desc {
-    margin: 10px 0 5px;
+    margin: 8px 0 5px;
     font-size: 12px;
     font-weight: 700;
     cursor: pointer;
     color: ${(props) => props.verifyColor};
+
+    .tag {
+      display: inline-block;
+      margin-right: 4px;
+      padding: 0 4px;
+      color: #fff;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: normal;
+      text-transform: uppercase;
+      white-space: nowrap;
+      border-radius: 3.2px;
+      background-color: ${(props) => props.verifyColor};
+    }
   }
 
   .name {

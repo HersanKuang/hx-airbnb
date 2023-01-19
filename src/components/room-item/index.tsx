@@ -11,16 +11,24 @@ interface IProps {
 
 const RoomItem: FC<IProps> = (props) => {
   const { itemData, itemWidth = '25%' } = props
+  console.log(itemData?.verify_info)
   return (
     <RoomItemWrapper
-      verifyColor={itemData?.verify_info?.text || '#39576a'}
+      verifyColor={itemData?.verify_info?.text_color || '#39576a'}
       itemWidth={itemWidth}
     >
       <div className="inner">
         <div className="cover">
           <img src={itemData.picture_url} />
         </div>
-        <div className="desc">{itemData.verify_info.messages.join(' · ')}</div>
+        <div className="desc">
+          {itemData?.verify_info?.kicker_badge && (
+            <span className="tag">
+              {itemData.verify_info.kicker_badge.label}
+            </span>
+          )}
+          <span>{itemData.verify_info.messages.join(' · ')}</span>
+        </div>
         <div className="name">{itemData.name}</div>
         <div className="price">¥{itemData.price}/晚</div>
         <div className="bottom">

@@ -20,14 +20,16 @@ const Home: FC<IProps> = () => {
     highScoreInfo,
     discountInfo,
     hotRecommendInfo,
-    longForInfo
+    longForInfo,
+    plusInfo
   } = useAppSelector(
     (state) => ({
       hotRecommendInfo: state.home.hotRecommendInfo,
       discountInfo: state.home.discountInfo,
       longForInfo: state.home.longForInfo,
       goodPriceInfo: state.home.goodPriceInfo,
-      highScoreInfo: state.home.highScoreInfo
+      highScoreInfo: state.home.highScoreInfo,
+      plusInfo: state.home.plusInfo
     }),
     shallowEqualApp
   )
@@ -49,6 +51,7 @@ const Home: FC<IProps> = () => {
         {isEmptyO(longForInfo) && <HomeLongfor infoData={longForInfo} />}
         {isEmptyO(goodPriceInfo) && <HomeSectionV1 infoData={goodPriceInfo} />}
         {isEmptyO(highScoreInfo) && <HomeSectionV1 infoData={highScoreInfo} />}
+        {isEmptyO(plusInfo) && <HomeSectionV1 infoData={plusInfo} />}
       </div>
     </HomeWrapper>
   )

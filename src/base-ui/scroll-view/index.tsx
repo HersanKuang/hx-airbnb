@@ -25,8 +25,6 @@ const ScrollView: FC<IProps> = (props) => {
     setShowRight(totalDistance.current > 0)
   }, [props.children])
 
-  console.log(props.children)
-
   function controlClickHandle(isRight: boolean) {
     const newIndex = isRight ? posIndex.current + 1 : posIndex.current - 1
     const itemsEl = scrollContentRef.current!.children[0] as HTMLElement
