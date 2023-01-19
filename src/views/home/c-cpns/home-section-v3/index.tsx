@@ -4,6 +4,7 @@ import { SectionV3Wrapper } from '@/views/home/c-cpns/home-section-v3/style'
 import AreaHeader from '@/components/area-header'
 import ScrollView from '@/base-ui/scroll-view'
 import RoomItem from '@/components/room-item'
+import AreaFooter from '@/components/area-footer'
 
 interface IProps {
   children?: ReactNode
@@ -24,6 +25,7 @@ const HomeSectionV3: FC<IProps> = (props) => {
           </div>
         </ScrollView>
       </div>
+      <AreaFooter name="Plus" />
     </SectionV3Wrapper>
   )
 }
