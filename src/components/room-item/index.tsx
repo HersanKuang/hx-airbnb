@@ -18,7 +18,7 @@ const RoomItem: FC<IProps> = (props) => {
       itemWidth={itemWidth}
     >
       <div className="inner">
-        <div className="cover">
+        <div className="room-item-cover">
           <img src={itemData.picture_url} />
         </div>
         <div className="desc">

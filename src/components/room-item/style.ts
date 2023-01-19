@@ -14,7 +14,7 @@ export const RoomItemWrapper = styled.div<IRoomItemStyle>`
     width: 100%;
   }
 
-  .cover {
+  .room-item-cover {
     position: relative;
     box-sizing: border-box;
     padding: 66.66% 8px 0;
