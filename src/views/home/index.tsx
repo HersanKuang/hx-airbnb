@@ -4,9 +4,10 @@ import { HomeWrapper } from '@/views/home/style'
 import HomeBanner from '@/views/home/c-cpns/home-banner'
 import { fetchHomeDataAction } from '@/store/modules/home'
 import { shallowEqualApp, useAppDispatch, useAppSelector } from '@/store'
+import { isEmptyO } from '@/utils'
 import HomeSectionV1 from '@/views/home/c-cpns/home-section-v1'
 import HomeSectionV2 from '@/views/home/c-cpns/home-section-v2'
-import { isEmptyO } from '@/utils'
+import HomeLongfor from '@/views/home/c-cpns/home-longfor'
 
 interface IProps {
   children?: ReactNode
@@ -14,16 +15,22 @@ interface IProps {
 
 const Home: FC<IProps> = () => {
   /** 从redux中获取数据 */
-  const { goodPriceInfo, highScoreInfo, discountInfo, hotRecommendInfo } =
-    useAppSelector(
-      (state) => ({
-        goodPriceInfo: state.home.goodPriceInfo,
-        highScoreInfo: state.home.highScoreInfo,
-        discountInfo: state.home.discountInfo,
-        hotRecommendInfo: state.home.hotRecommendInfo
-      }),
-      shallowEqualApp
-    )
+  const {
+    goodPriceInfo,
+    highScoreInfo,
+    discountInfo,
+    hotRecommendInfo,
+    longForInfo
+  } = useAppSelector(
+    (state) => ({
+      hotRecommendInfo: state.home.hotRecommendInfo,
+      discountInfo: state.home.discountInfo,
+      longForInfo: state.home.longForInfo,
+      goodPriceInfo: state.home.goodPriceInfo,
+      highScoreInfo: state.home.highScoreInfo
+    }),
+    shallowEqualApp
+  )
 
   /** 派发异步事件：发送网络请求 */
   const dispatch = useAppDispatch()
@@ -39,6 +46,7 @@ const Home: FC<IProps> = () => {
           <HomeSectionV2 infoData={hotRecommendInfo} />
         )}
         {isEmptyO(discountInfo) && <HomeSectionV2 infoData={discountInfo} />}
+        {isEmptyO(longForInfo) && <HomeLongfor infoData={longForInfo} />}
         {isEmptyO(goodPriceInfo) && <HomeSectionV1 infoData={goodPriceInfo} />}
         {isEmptyO(highScoreInfo) && <HomeSectionV1 infoData={highScoreInfo} />}
       </div>

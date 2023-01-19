@@ -4,6 +4,7 @@ export const ScrollViewWrapper = styled.div`
   position: relative;
   .control {
     position: absolute;
+    top: 17px;
     width: 28px;
     height: 28px;
     display: flex;
@@ -27,13 +28,11 @@ export const ScrollViewWrapper = styled.div`
 
     &.left {
       left: 0;
-      top: 17px;
-      transform: translateX(-50%);
+      transform: translate(-50%);
     }
 
     &.right {
       right: 0;
-      top: 17px;
       transform: translate(50%);
     }
   }

@@ -23,3 +23,9 @@ export function getHomeHotRecommendData() {
     url: '/home/hotrecommenddest'
   })
 }
+
+export function getHomeLongForData() {
+  return hxRequest.get({
+    url: '/home/longfor'
+  })
+}
