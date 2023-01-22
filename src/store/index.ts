@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import {
   shallowEqual,
-  type TypedUseSelectorHook,
   useDispatch,
-  useSelector
+  useSelector,
+  type TypedUseSelectorHook
 } from 'react-redux'
 import homeReducer from './modules/home'
 import entireReducer from './modules/entire'
