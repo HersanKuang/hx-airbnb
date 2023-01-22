@@ -19,15 +19,26 @@ export const FilterWrapper = styled.div`
     .item {
       margin: 0 4px 0 8px;
       padding: 6px 12px;
+      line-height: 18px;
       border: 1px solid #dce0e0;
       border-radius: 4px;
       color: #484848;
       cursor: pointer;
 
+      &:hover {
+        background: rgb(242, 242, 242);
+        border-color: rgb(242, 242, 242);
+      }
+
       &.active {
         background: #008489;
         border: 1px solid #008489;
         color: #ffffff;
+      }
+
+      &.active:hover {
+        background: rgb(0, 108, 112);
+        border-color: rgb(0, 108, 112);
       }
     }
   }
