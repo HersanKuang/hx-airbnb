@@ -1,8 +1,9 @@
 import React, { memo, useState } from 'react'
 import type { FC, ReactNode } from 'react'
+import classNames from 'classnames'
+import { Button } from '@mui/material'
 import { FilterWrapper } from '@/views/entire/c-cpns/entire-filter/style'
 import filterData from '@/assets/data/filter_data.json'
-import classNames from 'classnames'
 
 interface IProps {
   children?: ReactNode
@@ -28,7 +29,7 @@ const EntireFilter: FC<IProps> = () => {
     <FilterWrapper>
       <div className="filter">
         {filterData.map((item) => (
-          <div
+          <Button
             className={classNames('item', {
               active: selectItems.includes(item)
             })}
@@ -36,7 +37,7 @@ const EntireFilter: FC<IProps> = () => {
             onClick={() => itemClickHandle(item)}
           >
             {item}
-          </div>
+          </Button>
         ))}
       </div>
     </FilterWrapper>

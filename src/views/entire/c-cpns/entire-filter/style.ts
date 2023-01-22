@@ -19,6 +19,7 @@ export const FilterWrapper = styled.div`
     .item {
       margin: 0 4px 0 8px;
       padding: 6px 12px;
+      font-size: 14px;
       line-height: 18px;
       border: 1px solid #dce0e0;
       border-radius: 4px;
