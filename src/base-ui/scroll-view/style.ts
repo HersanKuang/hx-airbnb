@@ -16,7 +16,7 @@ export const ScrollViewWrapper = styled.div`
     border: 2px solid transparent;
     background-color: #fff;
     box-shadow: rgb(0 0 0 / 14%) 0 1px 1px 1px;
-    z-index: 99;
+    z-index: 9;
 
     &:hover {
       background-color: #fff;
@@ -39,13 +39,13 @@ export const ScrollViewWrapper = styled.div`
 
   .cover {
     position: absolute;
-    top: 8px;
-    width: 68px;
-    height: 48px;
+    top: -4px;
+    width: 36px;
+    height: 72px;
     z-index: 9;
 
     &.cover-left {
-      left: 0;
+      left: -4px;
       background: linear-gradient(
         90deg,
         rgb(255, 255, 255) 0%,
@@ -54,7 +54,7 @@ export const ScrollViewWrapper = styled.div`
       );
     }
     &.cover-right {
-      right: 0;
+      right: -4px;
       background: linear-gradient(
         270deg,
         rgb(255, 255, 255) 0%,

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 interface IRoomItemStyle {
   verifyColor: string
   itemWidth: string
+  contentWidth: number
 }
 export const RoomItemWrapper = styled.div<IRoomItemStyle>`
   flex-shrink: 0;
@@ -62,10 +63,10 @@ export const RoomItemWrapper = styled.div<IRoomItemStyle>`
         background: linear-gradient(
           to left,
           transparent 0%,
-          rgba(0, 0, 0, 0.25) 100%
+          rgba(0, 0, 0, 0.15) 100%
         );
 
-        &.right {
+        &.next {
           background: linear-gradient(
             to right,
             transparent 0%,
@@ -88,17 +89,24 @@ export const RoomItemWrapper = styled.div<IRoomItemStyle>`
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 14.29%;
+        width: ${(props) => props.contentWidth}%;
 
         .dot {
           width: 6px;
           height: 6px;
-          background-color: #fff;
+          background-color: rgba(255, 255, 255, 0.8);
           border-radius: 50%;
+
+          &.more {
+            transform: scale(0.666667);
+            opacity: 0.875;
+          }
 
           &.active {
             width: 8px;
             height: 8px;
+            transform: scale(1);
+            background-color: #fff;
           }
         }
       }

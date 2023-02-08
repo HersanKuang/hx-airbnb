@@ -19,7 +19,7 @@ export const TabsWrapper = styled.div`
       text-align: center;
       border: 0.5px solid #d8d8d8;
       background-color: #fff;
-      box-shadow: 0px 1px 2px rgb(0 0 0 / 15%);
+      box-shadow: 0 1px 2px rgb(0 0 0 / 15%);
       color: ${(props) => props.theme.text.primaryColor};
       ${(props) => props.theme.mixin.boxShadow};
 

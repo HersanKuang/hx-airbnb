@@ -4,8 +4,8 @@ import styleStrToObj from '@/assets/svg/utils'
 
 interface IProps {
   children?: ReactNode
-  width?: number
-  height?: number
+  width?: number | string
+  height?: number | string
 }
 
 const IconArrowLeft: FC<IProps> = (props) => {

@@ -1,1 +1,2 @@
-export * from './is-empty-object'
+export * from './isEmptyObject'
+export * from './hxThrottle'

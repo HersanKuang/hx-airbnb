@@ -21,6 +21,7 @@ export const SectionV3Wrapper = styled.div`
 
     .item {
       display: flex;
+      transition: transform 250ms ease;
     }
   }
 `

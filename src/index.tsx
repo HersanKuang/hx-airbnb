@@ -12,13 +12,13 @@ import theme from '@/assets/theme'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
-  <Suspense fallback="">
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <Provider store={store}>
+  <Provider store={store}>
+    <Suspense fallback="">
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
           <App />
-        </Provider>
-      </ThemeProvider>
-    </BrowserRouter>
-  </Suspense>
+        </ThemeProvider>
+      </BrowserRouter>
+    </Suspense>
+  </Provider>
 )

@@ -9,6 +9,8 @@ import HomeSectionV1 from '@/views/home/c-cpns/home-section-v1'
 import HomeSectionV2 from '@/views/home/c-cpns/home-section-v2'
 import HomeLongfor from '@/views/home/c-cpns/home-longfor'
 import HomeSectionV3 from './c-cpns/home-section-v3'
+import AppFooter from '@/components/app-footer'
+import { changeHeaderConfigAction } from '@/store/modules/main'
 
 interface IProps {
   children?: ReactNode
@@ -39,6 +41,7 @@ const Home: FC<IProps> = () => {
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(fetchHomeDataAction())
+    dispatch(changeHeaderConfigAction({ isFixed: true, topAlpha: true }))
   }, [dispatch])
 
   return (
@@ -53,6 +56,7 @@ const Home: FC<IProps> = () => {
         {isEmptyO(goodPriceInfo) && <HomeSectionV1 infoData={goodPriceInfo} />}
         {isEmptyO(highScoreInfo) && <HomeSectionV1 infoData={highScoreInfo} />}
         {isEmptyO(plusInfo) && <HomeSectionV3 infoData={plusInfo} />}
+        <AppFooter />
       </div>
     </HomeWrapper>
   )
