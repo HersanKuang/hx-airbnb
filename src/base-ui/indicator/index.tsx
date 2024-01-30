@@ -1,5 +1,5 @@
-import React, { memo, useEffect, useRef } from 'react'
 import type { FC, ReactNode } from 'react'
+import React, { memo, useEffect, useRef } from 'react'
 import { IndicatorWrapper } from '@/base-ui/indicator/style'
 
 interface IProps {
