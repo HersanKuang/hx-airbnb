@@ -1,5 +1,5 @@
-import React, { memo, useEffect, useRef, useState } from 'react'
 import type { FC, ReactNode } from 'react'
+import React, { memo, useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
 import { ScrollViewWrapper } from '@/base-ui/scroll-view/style'
 import IconArrowLeft from '@/assets/svg/icon-arrow-left'
@@ -10,20 +10,13 @@ interface IProps {
   isShowCover?: boolean
 }
 
-const ScrollView: FC<IProps> = (props) => {
-  const { isShowCover } = props
+const ScrollView: FC<IProps> = ({ isShowCover, children }) => {
   const [showRight, setShowRight] = useState(false)
   const [showLeft, setShowLeft] = useState(false)
   const posIndex = useRef(0)
   const totalDistance = useRef(0)
   /** 组件渲染完毕，判断是否显示右侧的按钮 */
   const scrollContentRef = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const scrollWidth = scrollContentRef.current!.scrollWidth // 一共可以滚动的距离
-    const clientWidth = scrollContentRef.current!.clientWidth // 本身占据的宽度
-    totalDistance.current = scrollWidth - clientWidth // 剩余可滚动的距离
-    setShowRight(totalDistance.current > 0)
-  }, [props.children])
 
   function controlClickHandle(isRight: boolean) {
     const newIndex = isRight ? posIndex.current + 1 : posIndex.current - 1
@@ -35,6 +28,13 @@ const ScrollView: FC<IProps> = (props) => {
     setShowRight(totalDistance.current > newElOffsetLeft)
     setShowLeft(newElOffsetLeft > 0)
   }
+
+  useEffect(() => {
+    const scrollWidth = scrollContentRef.current!.scrollWidth // 一共可以滚动的距离
+    const clientWidth = scrollContentRef.current!.clientWidth // 本身占据的宽度
+    totalDistance.current = scrollWidth - clientWidth // 剩余可滚动的距离
+    setShowRight(totalDistance.current > 0)
+  }, [children])
 
   return (
     <ScrollViewWrapper>
@@ -63,7 +63,7 @@ const ScrollView: FC<IProps> = (props) => {
         </button>
       )}
       <div className="scroll-content" ref={scrollContentRef}>
-        {props.children}
+        {children}
       </div>
     </ScrollViewWrapper>
   )

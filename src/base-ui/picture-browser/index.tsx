@@ -1,7 +1,7 @@
-import React, { memo, useEffect, useState } from 'react'
 import type { FC, ReactNode } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import classNames from 'classnames'
-import { SwitchTransition, CSSTransition } from 'react-transition-group'
+import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import { BrowserWrapper } from '@/base-ui/picture-browser/style'
 import IconClose from '@/assets/svg/icon-close'
 import IconArrowLeft from '@/assets/svg/icon-arrow-left'
@@ -16,25 +16,28 @@ interface IProps {
   closeClick: () => any
 }
 
-const PictureBrowser: FC<IProps> = (props) => {
-  const { pictureUrls, closeClick } = props
+const PictureBrowser: FC<IProps> = ({ pictureUrls, closeClick }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [showList, setShowList] = useState(true)
-  useEffect(() => {
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = 'auto'
-    }
-  }, [])
+
   function closeBtnClickHandle() {
     closeClick && closeClick()
   }
+
   function controlClickHandle(isNext = true) {
     let newIndex = isNext ? currentIndex + 1 : currentIndex - 1
     if (newIndex < 0) newIndex = pictureUrls.length - 1
     if (newIndex > pictureUrls.length - 1) newIndex = 0
     setCurrentIndex(newIndex)
   }
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [])
+
   return (
     <BrowserWrapper showList={showList}>
       <div className="top">

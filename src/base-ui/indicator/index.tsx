@@ -7,8 +7,7 @@ interface IProps {
   selectIndex: number
 }
 
-const Indicator: FC<IProps> = (props) => {
-  const { selectIndex } = props
+const Indicator: FC<IProps> = ({ selectIndex, children }) => {
   const contentRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     /** 获取selectIndex对应的item */
@@ -33,7 +32,7 @@ const Indicator: FC<IProps> = (props) => {
   return (
     <IndicatorWrapper>
       <div className="i-content" ref={contentRef}>
-        {props.children}
+        {children}
       </div>
     </IndicatorWrapper>
   )
